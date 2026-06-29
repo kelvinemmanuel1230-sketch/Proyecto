@@ -1,0 +1,39 @@
+ <?php
+include("../../cn.php");
+
+$id = isset($_GET["id"]) ? $_GET["id"] : 0;
+
+$inventario = "SELECT * FROM tb_inventario WHERE ID_Item = '$id'";
+?>
+<link rel="stylesheet" href="../../css/style.css">
+<form class="formulario" action="../../pro.php" method="POST">
+
+<input type="hidden" name="tabla" value="inventario">
+<input type="hidden" name="ID_Item" value="<?= $row['ID_Item'] ?>">
+
+<div class="campo">
+<label>Nombre Item</label>
+<input type="text" name="Nombre_Item" value="<?= $row['Nombre_Item'] ?>
+</div>
+" >
+
+<div class="campo">
+<label>Cantidad</label>
+<input type="number" name="Cantidad" value="<?= $row['Cantidad'] ?>
+</div>
+" >
+
+<div class="campo">
+<label>Estado</label>
+<input type="text" name="Estado" value="<?= $row['Estado'] ?>
+</div>
+" >
+
+<br>
+
+<div class="formulario-acciones">
+<button class="button" type="submit" >Guardar Cambios</button>
+
+<button onclick="window.history.back()" class="button secundario">Volver</button>
+</div>
+</form>

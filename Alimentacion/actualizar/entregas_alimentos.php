@@ -1,0 +1,49 @@
+ <?php
+include("../../cn.php");
+
+$id = isset($_GET["id"]) ? $_GET["id"] : 0;
+
+$entregas = "SELECT * FROM tb_entregas_alimentos WHERE ID_Entrega = '$id'";
+
+$resultados = mysqli_query($cn,$entregas);
+
+if($row=mysqli_fetch_assoc($resultados)){
+?>
+
+<form class="formulario" action="../../pro.php" method="POST">
+<link rel="stylesheet" href="../../css/style.css">
+<input type="hidden" name="tabla" value="entregas">
+<input type="hidden" name="ID_Entrega" value="<?= $row['ID_Entrega'] ?>">
+
+<div class="campo">
+<label>Fecha Entrega</label>
+<input type="date" name="Fecha_Entrega" value="<?= $row['Fecha_Entrega'] ?>" >
+</div>
+
+<div class="campo">
+<label>Cantidad</label>
+<input type="number" name="Cantidad" value="<?= $row['Cantidad'] ?>" >
+</div>
+
+<div class="campo">
+<label>Observaciones</label>
+<input type="text" name="Observaciones" value="<?= $row['Observaciones'] ?>" >
+</div>
+
+<div class="campo">
+<label>ID Estudiante</label>
+<input type="number" name="ID_Estudiante" value="<?= $row['ID_Estudiante'] ?>" >
+</div>
+
+<br>
+
+<div class="formulario-acciones">
+<button class="button" type="submit" >
+Guardar Cambios
+</button>
+
+<button onclick="window.history.back()" class="button secundario">Volver</button>
+</div>
+</form>
+
+<?php } ?>

@@ -1,0 +1,100 @@
+ <?php
+include("../../cn.php");
+
+$id = isset($_GET["id"]) ? $_GET["id"] : 0;
+
+$estudiantes = "SELECT * FROM tb_estudiantes WHERE ID_Estudiante = '$id'";
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editar Estudiante</title>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+<?php
+$resultados = mysqli_query($cn,$estudiantes);
+
+if($row=mysqli_fetch_assoc($resultados)){
+?>
+
+<form class="formulario" action="../../pro.php" method="POST">
+
+<input type="hidden" name="tabla" value="estudiantes">
+<input type="hidden" name="ID_Estudiante" value="<?= $row['ID_Estudiante'] ?>">
+
+<div class="campo">
+<label>Matrícula</label>
+<input type="text" name="Matricula" value="<?= $row['Matricula'] ?>" >
+</div>
+
+<div class="campo">
+<label>Nombres</label>
+<input type="text" name="Nombres" value="<?= $row['Nombres'] ?>" >
+</div>
+
+<div class="campo">
+<label>Apellidos</label>
+<input type="text" name="Apellidos" value="<?= $row['Apellidos'] ?>" >
+</div>
+
+<div class="campo">
+<label>Fecha Nacimiento</label>
+<input type="date" name="Fecha_Nacimiento" value="<?= $row['Fecha_Nacimiento'] ?>" >
+</div>
+
+<div class="campo">
+<label>Sexo</label>
+<input type="text" name="Sexo" value="<?= $row['Sexo'] ?>" >
+</div>
+
+<div class="campo">
+<label>Dirección</label>
+<input type="text" name="Direccion" value="<?= $row['Direccion'] ?>" >
+</div>
+
+<div class="campo">
+<label>Teléfono</label>
+<input type="text" name="Telefono" value="<?= $row['Telefono'] ?>" >
+</div>
+
+<div class="campo">
+<label>Correo</label>
+<input type="email" name="Correo" value="<?= $row['Correo'] ?>" >
+</div>
+
+<div class="campo">
+<label>Fecha Ingreso</label>
+<input type="date" name="Fecha_Ingreso" value="<?= $row['Fecha_Ingreso'] ?>" >
+</div>
+
+<div class="campo">
+<label>Estado</label>
+<input type="text" name="Estado" value="<?= $row['Estado'] ?>" >
+</div>
+
+<div class="campo">
+<label>ID Tutor</label>
+<input type="number" name="ID_Tutor" value="<?= $row['ID_Tutor'] ?>" >
+</div>
+
+<br>
+
+<div class="formulario-acciones">
+<button class="button" type="submit" >
+Guardar Cambios
+</button>
+
+<button onclick="window.history.back()" class="button secundario">Volver</button>
+</div>
+</form>
+
+<?php } ?>
+
+</body>
+</html>

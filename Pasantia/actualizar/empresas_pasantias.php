@@ -1,0 +1,73 @@
+ <?php
+include("../../cn.php");
+
+$id = isset($_GET["id"]) ? $_GET["id"] : 0;
+
+$empresas = "SELECT * FROM tb_empresas_pasantias WHERE ID_Empresa = '$id'";
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editar Empresa</title>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+<?php
+$resultados = mysqli_query($cn,$empresas);
+
+if($row=mysqli_fetch_assoc($resultados)){
+?>
+
+<form class="formulario" action="../../pro.php" method="POST">
+
+<input type="hidden" name="tabla" value="empresas">
+<input type="hidden" name="ID_Empresa" value="<?= $row['ID_Empresa'] ?>">
+
+<div class="campo">
+<label>Nombre</label>
+<input type="text" name="Nombre" value="<?= $row['Nombre'] ?>" >
+</div>
+
+<div class="campo">
+<label>Dirección</label>
+<input type="text" name="Direccion" value="<?= $row['Direccion'] ?>" >
+</div>
+
+<div class="campo">
+<label>Teléfono</label>
+<input type="text" name="Telefono" value="<?= $row['Telefono'] ?>" >
+</div>
+
+<div class="campo">
+<label>Correo</label>
+<input type="email" name="Correo" value="<?= $row['Correo'] ?>" >
+</div>
+
+<div class="campo">
+<label>Contacto</label>
+<input type="text" name="Contacto" value="<?= $row['Contacto'] ?>" >
+</div>
+
+<div class="campo">
+<label>Estado</label>
+<input type="text" name="Estado" value="<?= $row['Estado'] ?>" >
+</div>
+
+<br>
+
+<div class="formulario-acciones">
+<button class="button" type="submit" >Guardar Cambios</button>
+
+<button onclick="window.history.back()" class="button secundario">Volver</button>
+</div>
+</form>
+
+<?php } ?>
+
+</body>
+</html>
