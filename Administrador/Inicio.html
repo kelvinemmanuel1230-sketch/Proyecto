@@ -1,53 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Administrador - SGE</title>
-<link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador Maestro - SGE</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div>
-<h1>Administrador</h1>
-<h3>Nuevo registro</h3>
-<ul>
-<li><a href="formularios/empleados.php">Empleados</a></li>
-<li><a href="formularios/notificaciones.php">Notificaciones</a></li>
-<li><a href="formularios/periodos_academicos.php">Periodos Academicos</a></li>
-<li><a href="formularios/roles.php">Roles</a></li>
-<li><a href="formularios/usuarios.php">Usuarios</a></li>
-</ul>
-<h3>Modificar / Eliminar</h3>
-<ul>
-<li><a href="modificar_eliminar/empleados.php">Empleados</a></li>
-<li><a href="modificar_eliminar/notificaciones.php">Notificaciones</a></li>
-<li><a href="modificar_eliminar/periodos_academicos.php">Periodos Academicos</a></li>
-<li><a href="modificar_eliminar/roles.php">Roles</a></li>
-<li><a href="modificar_eliminar/usuarios.php">Usuarios</a></li>
-</ul>
-<h3>Ver tabla</h3>
-<ul>
-<li><a href="tablas/empleados.php">Empleados</a></li>
-<li><a href="tablas/notificaciones.php">Notificaciones</a></li>
-<li><a href="tablas/periodos_academicos.php">Periodos Academicos</a></li>
-<li><a href="tablas/roles.php">Roles</a></li>
-<li><a href="tablas/usuarios.php">Usuarios</a></li>
-</ul>
-<h3>Actualizar (acceso directo)</h3>
-<ul>
-<li><a href="actualizar/empleados.php">Empleados</a></li>
-<li><a href="actualizar/notificaciones.php">Notificaciones</a></li>
-<li><a href="actualizar/periodos_academicos.php">Periodos Academicos</a></li>
-<li><a href="actualizar/roles.php">Roles</a></li>
-<li><a href="actualizar/usuarios.php">Usuarios</a></li>
-</ul>
+    <div class="cont_list">
+        <h1>Panel de Control - Administrador</h1>
+        <p>Control total del Sistema de Gestión Escolar (SGE)</p>
 
-<h3>Test</h3>
-<ul>
-    <li><a href="../Alimentacion/tablas/entregas_alimentos.php">Alimentos</a></li>
-    <li><a href="formularios/estudiantes.php">Estudiantes</a></li>
-</ul>
+        <hr>
 
-</div>
+        <h2>1. Gestión del Sistema (Principal)</h2>
+        <h3>Nuevo registro</h3>
+        <ul>
+            <li><a href="formularios/empleados.php">Empleados</a></li>
+            <li><a href="formularios/notificaciones.php">Notificaciones</a></li>
+            <li><a href="formularios/periodos_academicos.php">Periodos Academicos</a></li>
+            <li><a href="formularios/roles.php">Roles</a></li>
+            <li><a href="formularios/usuarios.php">Usuarios</a></li>
+        </ul>
+        <h3>Modificar / Eliminar</h3>
+        <ul>
+            <li><a href="modificar_eliminar/empleados.php">Empleados</a></li>
+            <li><a href="modificar_eliminar/notificaciones.php">Notificaciones</a></li>
+            <li><a href="modificar_eliminar/periodos_academicos.php">Periodos Academicos</a></li>
+            <li><a href="modificar_eliminar/roles.php">Roles</a></li>
+            <li><a href="modificar_eliminar/usuarios.php">Usuarios</a></li>
+        </ul>
+        <h3>Ver tabla</h3>
+        <ul>
+            <li><a href="tablas/empleados.php">Empleados</a></li>
+            <li><a href="tablas/notificaciones.php">Notificaciones</a></li>
+            <li><a href="tablas/periodos_academicos.php">Periodos Academicos</a></li>
+            <li><a href="tablas/roles.php">Roles</a></li>
+            <li><a href="tablas/usuarios.php">Usuarios</a></li>
+        </ul>
+
+        <hr>
+
+        <h2>2. Acceso a Todos los Formularios del Sistema</h2>
+        <p><i>Creación directa de registros desde el panel de administrador:</i></p>
+        <ul>
+            <li><a href="formularios/anamnesis.php">Anamnesis</a></li>
+            <li><a href="formularios/asignaciones_maestros.php">Asignaciones de Maestros</a></li>
+            <li><a href="formularios/asistencias.php">Asistencias</a></li>
+            <li><a href="formularios/calificaciones.php">Calificaciones</a></li>
+            <li><a href="formularios/Deteccion_necesidades.php">Detección de Necesidades</a></li>
+            <li><a href="formularios/empresas_pasantias.php">Empresas para Pasantías</a></li>
+            <li><a href="formularios/entregas_alimentos.php">Entregas de Alimentos</a></li>
+            <li><a href="formularios/estudiantes.php">Estudiantes</a></li>
+            <li><a href="formularios/historial_medico.php">Historial Médico</a></li>
+            <li><a href="formularios/inscripciones.php">Inscripciones</a></li>
+            <li><a href="formularios/inspecciones_alimentos.php">Inspecciones de Alimentos</a></li>
+            <li><a href="formularios/inventarios.php">Inventarios</a></li>
+            <li><a href="formularios/maestros.php">Maestros</a></li>
+            <li><a href="formularios/materias.php">Materias</a></li>
+            <li><a href="formularios/menu_diario.php">Menú Diario</a></li>
+            <li><a href="formularios/pasantias.php">Pasantías</a></li>
+            <li><a href="formularios/permisos_salidas.php">Permisos de Salidas</a></li>
+            <li><a href="formularios/referimientos.php">Referimientos Médicos</a></li>
+            <li><a href="formularios/registros_medicamentos.php">Registros de Medicamentos</a></li>
+            <li><a href="formularios/reinscripciones.php">Reinscripciones</a></li>
+            <li><a href="formularios/solicitudes_documentos.php">Solicitudes de Documentos</a></li>
+            <li><a href="formularios/tutores.php">Tutores</a></li>
+        </ul>
+
+        <hr>
+
+        <h2>3. Acceso Directo a Otros Módulos</h2>
+        <p><i>Navegar a las páginas de inicio de los demás roles:</i></p>
+        <ul>
+            <li><a href="../Alimentacion/Inicio.html">Módulo de Alimentación</a></li>
+            <li><a href="../Bibliotecario/Inicio.html">Módulo de Bibliotecario</a></li>
+            <li><a href="../Compras/Inicio.html">Módulo de Compras</a></li>
+            <li><a href="../Coordinador/Inicio.html">Módulo de Coordinador</a></li>
+            <li><a href="../Director/Inicio.html">Módulo de Director</a></li>
+            <li><a href="../Enfermera/Inicio.html">Módulo de Enfermera</a></li>
+            <li><a href="../Inventario/Inicio.html">Módulo de Inventario</a></li>
+            <li><a href="../Maestro/Inicio.html">Módulo de Maestro</a></li>
+            <li><a href="../Orientador/Inicio.html">Módulo de Orientador</a></li>
+            <li><a href="../Pasantia/Inicio.html">Módulo de Pasantía</a></li>
+            <li><a href="../Secretario_academico/Inicio.html">Módulo Académico</a></li>
+            <li><a href="../Secretario_Docente/Inicio.html">Módulo Docente</a></li>
+            <li><a href="../Subdirector/Inicio.html">Módulo de Subdirector</a></li>
+        </ul>
+        <br>
+    </div>
 </body>
 </html>
