@@ -586,6 +586,88 @@ if ($tabla == "pasantias") {
     WHERE ID_Pasantia='$id'";
 }
 
+/* ================= tb_autores ================= */
+if ($tabla == "autores") {
+
+    $id = $_POST['ID_Autor'];
+    $nombre = $_POST['Nombre'];
+    $nacionalidad = $_POST['Nacionalidad'];
+    $fecha_nacimiento = $_POST['Fecha_Nacimiento'] ?? NULL;
+    $estado = $_POST['Estado'];
+
+    $sql = "UPDATE tb_autores SET
+    Nombre='$nombre',
+    Nacionalidad='$nacionalidad',
+    Fecha_Nacimiento='$fecha_nacimiento',
+    Estado='$estado'
+    WHERE ID_Autor='$id'";
+}
+
+/* ================= tb_editoriales ================= */
+if ($tabla == "editoriales") {
+
+    $id = $_POST['ID_Editorial'];
+    $nombre = $_POST['Nombre'];
+    $direccion = $_POST['Direccion'];
+    $telefono = $_POST['Telefono'];
+    $correo = $_POST['Correo'];
+    $estado = $_POST['Estado'];
+
+    $sql = "UPDATE tb_editoriales SET
+    Nombre='$nombre',
+    Direccion='$direccion',
+    Telefono='$telefono',
+    Correo='$correo',
+    Estado='$estado'
+    WHERE ID_Editorial='$id'";
+}
+
+/* ================= tb_libros ================= */
+if ($tabla == "libros") {
+
+    $id = $_POST['ID_Libro'];
+    $titulo = $_POST['Titulo'];
+    $isbn = $_POST['ISBN'];
+    $anio = $_POST['Anio_Publicacion'];
+    $descripcion = $_POST['Descripcion'];
+    $estado = $_POST['Estado'];
+    $autor = $_POST['ID_Autor'];
+    $editorial = $_POST['ID_Editorial'];
+
+    $sql = "UPDATE tb_libros SET
+    Titulo='$titulo',
+    ISBN='$isbn',
+    Anio_Publicacion='$anio',
+    Descripcion='$descripcion',
+    Estado='$estado',
+    ID_Autor='$autor',
+    ID_Editorial='$editorial'
+    WHERE ID_Libro='$id'";
+}
+
+/* ================= tb_prestamos ================= */
+if ($tabla == "prestamos") {
+
+    $id = $_POST['ID_Prestamo'];
+    $fecha_prestamo = $_POST['Fecha_Prestamo'];
+    $fecha_devolucion = $_POST['Fecha_Devolucion'];
+    $observaciones = $_POST['Observaciones'];
+    $estado = $_POST['Estado'];
+    $libro = $_POST['ID_Libro'];
+    $estudiante = $_POST['ID_Estudiante'];
+    $empleado = $_POST['ID_Empleado'];
+
+    $sql = "UPDATE tb_prestamos SET
+    Fecha_Prestamo='$fecha_prestamo',
+    Fecha_Devolucion='$fecha_devolucion',
+    Observaciones='$observaciones',
+    Estado='$estado',
+    ID_Libro='$libro',
+    ID_Estudiante='$estudiante',
+    ID_Empleado='$empleado'
+    WHERE ID_Prestamo='$id'";
+}
+
 $resultado = mysqli_query($cn,$sql);
 
 if($resultado){
@@ -700,6 +782,22 @@ if($resultado){
             header("Location: pasantias/modificar_eliminar/pasantias.php");
         break;
 
+        case "autores":
+            header("Location: biblioteca/modificar_eliminar/autores.php");
+        break;
+
+        case "editoriales":
+            header("Location: biblioteca/modificar_eliminar/editoriales.php");
+        break;
+
+        case "libros":
+            header("Location: biblioteca/modificar_eliminar/libros.php");
+        break;
+
+        case "prestamos":
+            header("Location: biblioteca/modificar_eliminar/prestamos.php");
+        break;
+
         default:
             header("Location: index.php");
     }
@@ -709,3 +807,4 @@ if($resultado){
 }else{
     echo "Error" . mysqli_error($cn);
 }
+?>

@@ -86,6 +86,26 @@ case "solicitudes":
     $redirigir = "/Secretario_academico/modificar%20y%20eliminar/solicitudes_documentos.php";
 break;
 
+case "autores":
+    $eliminar = "DELETE FROM tb_autores WHERE ID_Autor='$id'";
+    $redirigir = "/Biblioteca/modificar_eliminar/autores.php";
+break;
+
+case "editoriales":
+    $eliminar = "DELETE FROM tb_editoriales WHERE ID_Editorial='$id'";
+    $redirigir = "/Biblioteca/modificar_eliminar/editoriales.php";
+break;
+
+case "libros":
+    $eliminar = "DELETE FROM tb_libros WHERE ID_Libro='$id'";
+    $redirigir = "/Biblioteca/modificar_eliminar/libros.php";
+break;
+
+case "prestamos":
+    $eliminar = "DELETE FROM tb_prestamos WHERE ID_Prestamo='$id'";
+    $redirigir = "/Biblioteca/modificar_eliminar/prestamos.php";
+break;
+
 default:
     die("Tabla no válida");
 }

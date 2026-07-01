@@ -573,4 +573,87 @@ echo (mysqli_query($cn,$sql))
 
 }
 
+/* ===================== tb_autores ===================== */
+if(isset($_POST['Nombre']) && isset($_POST['Nacionalidad']) && !isset($_POST['Nombre_Materia']) && !isset($_POST['Nombre_Periodo'])){
+
+$Nombre = $_POST['Nombre'];
+$Nacionalidad = $_POST['Nacionalidad'];
+$Fecha_Nacimiento = $_POST['Fecha_Nacimiento'] ?? NULL;
+$Estado = $_POST['Estado'];
+
+$sql = "INSERT INTO tb_autores
+(Nombre,Nacionalidad,Fecha_Nacimiento,Estado)
+VALUES
+('$Nombre','$Nacionalidad','$Fecha_Nacimiento','$Estado')";
+
+echo (mysqli_query($cn,$sql))
+? "Autor registrado correctamente"
+: mysqli_error($cn);
+
+}
+
+/* ===================== tb_editoriales ===================== */
+if(isset($_POST['Nombre']) && isset($_POST['Telefono']) && !isset($_POST['Nacionalidad'])){
+
+$Nombre = $_POST['Nombre'];
+$Direccion = $_POST['Direccion'];
+$Telefono = $_POST['Telefono'];
+$Correo = $_POST['Correo'];
+$Estado = $_POST['Estado'];
+
+$sql = "INSERT INTO tb_editoriales
+(Nombre,Direccion,Telefono,Correo,Estado)
+VALUES
+('$Nombre','$Direccion','$Telefono','$Correo','$Estado')";
+
+echo (mysqli_query($cn,$sql))
+? "Editorial registrada correctamente"
+: mysqli_error($cn);
+
+}
+
+/* ===================== tb_libros ===================== */
+if(isset($_POST['Titulo'])){
+
+$Titulo = $_POST['Titulo'];
+$ISBN = $_POST['ISBN'];
+$Anio_Publicacion = $_POST['Anio_Publicacion'];
+$Descripcion = $_POST['Descripcion'];
+$Estado = $_POST['Estado'];
+$ID_Autor = $_POST['ID_Autor'];
+$ID_Editorial = $_POST['ID_Editorial'];
+
+$sql = "INSERT INTO tb_libros
+(Titulo,ISBN,Anio_Publicacion,Descripcion,Estado,ID_Autor,ID_Editorial)
+VALUES
+('$Titulo','$ISBN','$Anio_Publicacion','$Descripcion','$Estado','$ID_Autor','$ID_Editorial')";
+
+echo (mysqli_query($cn,$sql))
+? "Libro registrado correctamente"
+: mysqli_error($cn);
+
+}
+
+/* ===================== tb_prestamos ===================== */
+if(isset($_POST['Fecha_Prestamo']) && isset($_POST['ID_Libro'])){
+
+$Fecha_Prestamo = $_POST['Fecha_Prestamo'];
+$Fecha_Devolucion = $_POST['Fecha_Devolucion'];
+$Observaciones = $_POST['Observaciones'];
+$Estado = $_POST['Estado'];
+$ID_Libro = $_POST['ID_Libro'];
+$ID_Estudiante = $_POST['ID_Estudiante'];
+$ID_Empleado = $_POST['ID_Empleado'];
+
+$sql = "INSERT INTO tb_prestamos
+(Fecha_Prestamo,Fecha_Devolucion,Observaciones,Estado,ID_Libro,ID_Estudiante,ID_Empleado)
+VALUES
+('$Fecha_Prestamo','$Fecha_Devolucion','$Observaciones','$Estado','$ID_Libro','$ID_Estudiante','$ID_Empleado')";
+
+echo (mysqli_query($cn,$sql))
+? "Préstamo registrado correctamente"
+: mysqli_error($cn);
+
+}
+
 ?>

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define el directorio base y el archivo donde se guardará todo
-DIRECTORIO="/home/kelvin/Documents/SGE"
+DIRECTORIO="/home/kelvin/Documents/Proyecto"
 ARCHIVO_SALIDA="codigo_completo_sistema.txt"
 
 # Crea o vacía el archivo de salida si ya existe
