@@ -10,13 +10,16 @@ tb_roles.Nombre_Rol
 FROM tb_usuarios
 INNER JOIN tb_roles
 ON tb_usuarios.ID_Rol = tb_roles.ID_Rol
-WHERE Usuario='$usuario'
-AND Clave='$clave'
-AND tb_usuarios.Estado='Activo'";
+WHERE Usuario = ?
+AND Clave = ?
+AND tb_usuarios.Estado = 'Activo'";
 
-$resultado = mysqli_query($cn,$sql);
+$stmt = mysqli_prepare($cn, $sql);
+mysqli_stmt_bind_param($stmt, "ss", $usuario, $clave);
+mysqli_stmt_execute($stmt);
+$resultado = mysqli_stmt_get_result($stmt);
 
-if(mysqli_num_rows($resultado)>0){
+if (mysqli_num_rows($resultado) > 0) {
 
     $datos = mysqli_fetch_assoc($resultado);
 
@@ -24,7 +27,6 @@ if(mysqli_num_rows($resultado)>0){
 
     $_SESSION['ID_Usuario'] = $datos['ID_Usuario'];
     $_SESSION['Usuario'] = $datos['Usuario'];
-    $_SESSION['Clave'] = $datos['Clave'];
     $_SESSION['ID_Rol'] = $datos['ID_Rol'];
 
 switch(strtolower($datos['Nombre_Rol'])){
