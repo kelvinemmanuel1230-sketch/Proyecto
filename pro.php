@@ -807,4 +807,6 @@ if($resultado){
 }else{
     echo "Error" . mysqli_error($cn);
 }
+
 ?>
+
